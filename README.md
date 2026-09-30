@@ -8,7 +8,7 @@ End-to-end supply chain planning project built with **SQL + Excel** - cleaning, 
 - Fields: Date, Store, Product, Category, Inventory Level, Units Sold, Price, Discount, etc.
 
 ## What I did
-1. **SQL cleaning (SQLite):** duplicate, null, negative-value, and referential-integrity checks on 73,100 rows.
+1. **SQL cleaning (PostgreSQL):** duplicate, null, negative-value, and referential-integrity checks on 73,100 rows.
 2. **Data-integrity finding:** `Product ID` alone is not a stable SKU key — it's inconsistently tagged across all 5 categories. Redefined the SKU grain as `Store ID + Product ID` (100 SKUs, verified clean via SQL).
 3. **SQL analysis:** SKU-level demand stats (avg daily demand, std dev, CV) and monthly time series, aggregated from the raw table.
 4. **ABC-XYZ classification:** value-based Pareto split + a rank-based alternative (documented why the value-based method underperforms on this dataset's flat demand distribution).
@@ -19,4 +19,4 @@ End-to-end supply chain planning project built with **SQL + Excel** - cleaning, 
 - `Demand_Forecasting_Inventory_Planning.xlsx` — full workbook (ReadMe → Cleaning Log → SKU Master → ABC-XYZ → Forecast Accuracy → Assumptions → Inventory Planning → Dashboard)
 
 ## Tools
-SQL (SQLite) · Excel (formulas, no hardcoded outputs) · ABC/XYZ analysis · Safety stock / ROP / EOQ · Forecast accuracy (MAE, RMSE, MAPE, Bias)
+SQL (PostgreSQL) · Excel (formulas, no hardcoded outputs) · ABC/XYZ analysis · Safety stock / ROP / EOQ · Forecast accuracy (MAE, RMSE, MAPE, Bias)
